@@ -1,0 +1,6 @@
+#PBS -N my_mpi
+#PBS -l walltime=00:10:00
+#PBS -l select=2:ncpus=24:mpiprocs=24:mem=2GB
+module load intel-suite
+module load mpi
+mpiexec ~/MPI/lect0/exe_code_for_hpc
