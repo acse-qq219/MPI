@@ -16,6 +16,8 @@ or "...\Lib\x86" (depends on your debugger)
 ## Configuration for HPC (Imperial cx1 and cx2):
 * There are many ways to access cx1 and cx2, but the first thing is that you need to connect `Imperial-WPA` wifi, otherwise you can only access it through [Imperial vpn](https://www.imperial.ac.uk/admin-services/ict/self-service/connect-communicate/remote-access/virtual-private-network-vpn/) :
   1. (with GUI, ease to use) use [FileZilla Client](https://filezilla-project.org/)
+ 
+ ![Connected](image/FileZilla Connection.png?raw=true)
 
 ## Start
 Comments can be found in `.cpp` file
