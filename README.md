@@ -1,8 +1,8 @@
-# MPI - FOR PERSONAL USE ONLY
+# MPI - FOR PERSONAL STUDY USE ONLY
 
 ## Configuration
-1. MSVC C++ 2019 
-2. Install Miscroft [MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi)
+1. Install MSVC C++ 2017 (or higher version) 
+2. Install [Miscroft MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi)
 * download and install both `msmpisdk.msi` and `msmpisetup.exe` at default path
 * For WINS, add path "C:\Program Files\Microsoft MPI\Bin\" to environment variables
 3. Create a new project in MSVC
@@ -14,3 +14,6 @@ or "...\Lib\x86" (depends on your debugger)
 * Add "msmmpi.lib" to the `Additional Dependencies`
 
 ## Start
+Comments can be found in .cpp file
+
+* [First Hello world program]
