@@ -43,7 +43,7 @@ Comments can be found in ".cpp" file
 * Compiling locally:
   1. enter the path where you can find your ".exe" file (it may be stored in "./MPI/x64/Debug")
   2. in your LINUX system like [Git Bash](https://gitforwindows.org/) , go to ***lect0.exe*** path
-  3. Input `mpiexec -n #core mpi_lecture0.exe` and replace `#core` with any positive integer which stands for the number of cores you allocated.
+  3. Input `mpiexec -n #core# mpi_lecture0.exe` and replace `#core#` with any positive integer which stands for the number of cores you allocated.
 
 * Compiling under cx1 and cx2:
   1. Connect to the server with PuTTY
@@ -72,8 +72,21 @@ Comments can be found in ".cpp" file
   ```
   #PBS -N my_first_job                               // name of the job
   #PBS -l walltime=00:10:00                          // maximum execution time (10 mins in this case)
+  
+  // "select" - number of machines requested
+  // "ncpus" - number of cores per machine
+  // "mpiprocs" - use number of cores of "ncpus"
+  // "mem" - allowed memory usgae
   #PBS -l select=2:ncpus=12:mpiprocs=12:mem=1GB
+  
+  // you can load these module in putty CLI as well
   module load intel-suite
   module load mpi
+  
+  // include CORRECT path for your .exe code 
   mpiexec ~/MPI/lect0/exe_code_for_hpc
   ```
+  7. Submit the job `qsub my_script.pbs`
+  8. Check your job status by using `qstat -a` or check all queueing job `qstat - Q` 
+  9. (If you want to kill a running or queueing job `qdel #number#.cx1` by replacing `#number#` to your identity number of your job in cx1
+  10. After completing, you will get two files updated in your current directory. E.g. ***my_first_job.o#number#*** (output text sent to stdout) and ***my_first_job.e#number#*** (error text sent to stderr)
