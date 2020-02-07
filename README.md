@@ -38,7 +38,7 @@ Port: 22
 ## Start
 Comments can be found in ".cpp" file
 
-### Follow the [First Hello world program](lect0.cpp) to find your first "HELLO WORLD" code!
+### Follow the [First Hello world program](lecture_0/lect0.cpp) to find your first "HELLO WORLD" code!
 * In you MSVC, build it
 * Compiling locally:
   1. enter the path where you can find your ".exe" file (it may be stored in "./MPI/x64/Debug")
@@ -54,7 +54,7 @@ Comments can be found in ".cpp" file
   mkdir lect0
   cd lect0
   ```
-  3. Create a file called [Makefile](Makefile) in this directory (upload ***lect0.cpp*** here as well). Note that you should use LINUX EOF `LF` instead of WINS EOF `CR LF`, you may change that using [Notepad++](https://notepad-plus-plus.org/downloads/). Find ***EOL Conversion*** in top ***Edit*** bar, select ***Unix (LF)***
+  3. Create a file called [Makefile](lecture_0/Makefile) in this directory (upload ***lect0.cpp*** here as well). Note that you should use LINUX EOF `LF` instead of WINS EOF `CR LF`, you may change that using [Notepad++](https://notepad-plus-plus.org/downloads/). Find ***EOL Conversion*** in top ***Edit*** bar, select ***Unix (LF)***
   ```
   MAKE = make                       // command to build
   TARGET = my_code                  // target filename
@@ -68,7 +68,7 @@ Comments can be found in ".cpp" file
    module load mpi
   ```
   5. run ***Makefile*** by typing `make`
-  6. In same directory, create a file called [my_script.pbs](my_script.pbs)
+  6. In same directory, create a file called [my_script.pbs](lecture_0/my_script.pbs)
   ```
   #PBS -N my_first_job                               // name of the job
   #PBS -l walltime=00:10:00                          // maximum execution time (10 mins in this case)
@@ -89,4 +89,4 @@ Comments can be found in ".cpp" file
   7. Submit the job `qsub my_script.pbs`
   8. Check your job status by using `qstat -a` or check all queueing job `qstat - Q` 
   9. (If you want to kill a running or queueing job `qdel #number#.cx1` by replacing `#number#` to your identity number of your job in cx1
-  10. After completing, you will get two files updated in your current directory. E.g. ***my_first_job.o#number#*** (output text sent to stdout) and ***my_first_job.e#number#*** (error text sent to stderr)
+  10. After completing, you will get two files updated in your current directory. E.g. ***my_first_job.o#number#*** (output text sent to stdout) and ***my_first_job.e#number#*** (error text sent to stderr). You can check ***my_first_job.e#number#*** for output.
