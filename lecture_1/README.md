@@ -1,4 +1,4 @@
-# Problem Set
+# Blocking Point-to-Point Communication
 
 ## Exercise 1: Ring Communication
 Write a program that does a ring communication. Each process should send a new number to the next process in addition to the numbers received from the previous process. In other words, process zero should send a single number to process 1, process 1 should send two numbers to process 2 (the original one from the first process together with a new number), process 2 should then send 3 numbers to process 3 etc.. This should continue until the last process sends the entire list of numbers back to the first process. At each stage the process should give its id and the number that it is adding to the list, with process zero then outputting the entire list when it gets back to it. Note that each process should do a single send and a single receive, with an array being sent between the processes.

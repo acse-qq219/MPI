@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <time.h>
 
-#define tag_num 1
+#define TAG_NUM 1
 
 using namespace std;
 
@@ -31,31 +31,31 @@ int main(int argc, char* argv[]) {
 			cout << data[i] << " ";
 		}
 		cout << endl;
-		MPI_Send(data, num_additional, MPI_INT, destination, tag_num, MPI_COMM_WORLD);
+		MPI_Send(data, num_additional, MPI_INT, destination, TAG_NUM, MPI_COMM_WORLD);
 		delete[] data;
 
 		// allow information about a communication to be read before communication finished
 		// "status" - a pointer to the structure containing the status information
-		MPI_Probe(source, tag_num, MPI_COMM_WORLD, &status);
+		MPI_Probe(source, TAG_NUM, MPI_COMM_WORLD, &status);
 
 		// used with "MPI_Probe" to get number of items received
 		MPI_Get_count(&status, MPI_INT, &num_recv);
 		
 		// final step, processor 0 get values from 23, no need to add size
 		data = new int[num_recv];
-		MPI_Recv(data, num_recv, MPI_INT, source, tag_num, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+		MPI_Recv(data, num_recv, MPI_INT, source, TAG_NUM, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 		cout << "Processor " << id << " received:";
 		for (int i = 0; i < num_recv; i++) cout << " " << data[i];
 		cout << endl;
 		delete[] data;
 	}
 	else {
-		MPI_Probe(source, tag_num, MPI_COMM_WORLD, &status);
+		MPI_Probe(source, TAG_NUM, MPI_COMM_WORLD, &status);
 		MPI_Get_count(&status, MPI_INT, &num_recv);
 		num_additional = rand() % 3 + 1;
 		// accumulation with new "num_additional"
 		data = new int[num_additional + num_recv];
-		MPI_Recv(data, num_recv, MPI_INT, source, tag_num, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+		MPI_Recv(data, num_recv, MPI_INT, source, TAG_NUM, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 		
 		cout << id << " sent:";
 		for (int i = 0; i < num_additional; i++) {
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
 			cout << " " << data[num_recv + i];
 		}
 		cout << endl;
-		MPI_Send(data, num_additional + num_recv, MPI_INT, destination, tag_num, MPI_COMM_WORLD);
+		MPI_Send(data, num_additional + num_recv, MPI_INT, destination, TAG_NUM, MPI_COMM_WORLD);
 		delete[] data;
 	}
 

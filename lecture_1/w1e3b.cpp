@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 
-#define tag_num 1
+#define TAG_NUM 1
 
 using namespace std;
 
@@ -23,13 +23,13 @@ void comm_range(int bottom, int top) {
 			other_half_id = (lower_offset + i) % range + mid; // other higher half processor id
 			if (other_half_id <= top) {
 				send_data = id;
-				MPI_Send(&send_data, 1, MPI_INT, other_half_id, tag_num, MPI_COMM_WORLD);
+				MPI_Send(&send_data, 1, MPI_INT, other_half_id, TAG_NUM, MPI_COMM_WORLD);
 				cout << "processor " << id << " sent " << send_data
 					<< " to processor " << other_half_id << endl;
 				cout.flush();
 
 				int recv_data;
-				MPI_Recv(&recv_data, 1, MPI_INT, other_half_id, tag_num, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+				MPI_Recv(&recv_data, 1, MPI_INT, other_half_id, TAG_NUM, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 				cout << "processor " << id << " received " << recv_data
 					<< " from processor " << other_half_id << endl;
 				cout.flush();
@@ -41,13 +41,13 @@ void comm_range(int bottom, int top) {
 		for (int i = 0; i < range; i++) {
 			other_half_id = (higher_offset - i + range) % range + bottom;  // other lower half processor id
 			int recv_data;
-			MPI_Recv(&recv_data, 1, MPI_INT, other_half_id, tag_num, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+			MPI_Recv(&recv_data, 1, MPI_INT, other_half_id, TAG_NUM, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 			cout << "processor " << id << " received " << recv_data
 				<< " from processor " << other_half_id << endl;
 			cout.flush();
 
 			send_data = id;
-			MPI_Send(&send_data, 1, MPI_INT, other_half_id, tag_num, MPI_COMM_WORLD);
+			MPI_Send(&send_data, 1, MPI_INT, other_half_id, TAG_NUM, MPI_COMM_WORLD);
 			cout << "processor " << id << " sent " << send_data
 				<< " to processor " << other_half_id << endl;
 			cout.flush();

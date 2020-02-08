@@ -3,10 +3,14 @@
 #include <cstdlib>
 #include <time.h>
 
+// identifier for this communication
+// can be any integer defined by yourself
+#define TAG_NUM 1 	
+
 using namespace std;
 
 int id, p;
-#define tag_num 1
+
 
 int main(int argc, char* argv[])
 {
@@ -32,13 +36,12 @@ int main(int argc, char* argv[])
 		// "data" - pointer to the data to be sent
 		// "1" - number of items to be sent (processor 0 to 1)
 		// "MPI_INT" - int data type in mpi
-		// "tag_num" - identifier for this communication
-		MPI_Send(data, 1, MPI_INT, distination, tag_num, MPI_COMM_WORLD);
+		MPI_Send(data, 1, MPI_INT, distination, TAG_NUM, MPI_COMM_WORLD);
 		cout << "Processor " << 1 << " added " << data[0] << endl;
 
 		// prcessor 23 to 0, so we have data with size "p"
 		// "MPI_STATUS_IGNORE" - ignore the structure that contains information about the communication
-		MPI_Recv(data, p, MPI_INT, source, tag_num, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+		MPI_Recv(data, p, MPI_INT, source, TAG_NUM, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
 		cout << "Processor 0 received:" << endl;
 		for (int i = 0; i < p; i++) {
@@ -48,11 +51,11 @@ int main(int argc, char* argv[])
 		cout.flush();
 	}
 	else {
-		MPI_Recv(data, data_size - 1, MPI_INT, source, tag_num, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+		MPI_Recv(data, data_size - 1, MPI_INT, source, TAG_NUM, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 		
 		// Remember we need to add one more data each processor
 		data[data_size - 1] = rand();
-		MPI_Send(data, data_size, MPI_INT, distination, tag_num, MPI_COMM_WORLD);
+		MPI_Send(data, data_size, MPI_INT, distination, TAG_NUM, MPI_COMM_WORLD);
 		cout << "Processor " << distination << " added " << data[data_size - 1] << endl;
 		cout.flush();
 	}

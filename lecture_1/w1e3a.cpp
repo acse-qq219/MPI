@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 
-#define tag_num 1
+#define TAG_NUM 1
 
 using namespace std;
 
@@ -21,14 +21,14 @@ int main(int argc, char* argv[]) {
 				// send data to all other processors
 				if (j != id) {
 					double send_data = (double)id / (double)p;
-					MPI_Send(&send_data, 1, MPI_DOUBLE, j, tag_num, MPI_COMM_WORLD);
+					MPI_Send(&send_data, 1, MPI_DOUBLE, j, TAG_NUM, MPI_COMM_WORLD);
 				}
 			}
 		}
 		else {
 			double recv_data;
 			// other processors receive data from i 
-			MPI_Recv(&recv_data, 1, MPI_DOUBLE, i, tag_num, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+			MPI_Recv(&recv_data, 1, MPI_DOUBLE, i, TAG_NUM, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 			cout << id << " received " << recv_data << " from " << i << endl;
 		}
 	}
