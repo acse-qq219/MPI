@@ -1,7 +1,7 @@
 # WINS MPI - FOR PERSONAL STUDY USE ONLY
 
 
-## Configuration for MSVS
+## Configuration for MSVC
 * Install MSVC C++ 2017 (or higher version) 
 * Install [Miscroft MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi)
   1. download and install both ***msmpisdk.msi*** and ***msmpisetup.exe*** at default path
@@ -36,7 +36,7 @@ Port: 22
 
 
 ## Start
-Comments can be found in ".cpp" file
+**All comments and instructions usage can be found in ".cpp" file. Don't forget to read README.md in each leacture first !**
 
 ### Follow the [First Hello world program](lecture_0/lect0.cpp) to find your first "HELLO WORLD" code!
 * In you MSVC, build it

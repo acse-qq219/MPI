@@ -10,8 +10,8 @@
 * Write a function that does some calculations (you can decide what this important extra work is!) and repeatedly call this function until all the communications for that process have been completed. Write to the screen how many cycles of this task were completed by each process.
 
 ## Exercise 3: Non-blocking communications with neighbours
-* Divide your p processes into a grid of size m x n (try and ensure that m and n are integers that are as close to one another as possible. E.g. if p is 9, m and n should both be 3, while if p is 12, one should be 3 and the other 4). On this grid calculate an i and j index for each process such that id = i + m*j.
-* Each process should communicate with the processes that next to it vertically, horizontally and diagonally (i.e. processes in the middle of the grid will communicate with 8 neighbours, those on edges with 5 neighbours and those in the corners with 3 neighbours). Send the neighbours the source’s id as well as their i and j coordinates and display these
+* Divide your p processes into a grid of size m x n (try and ensure that m and n are integers that are as close to one another as possible. E.g. if p is 9, m and n should both be 3, while if p is 12, one should be 3 and the other 4). On this grid calculate an i and j index for each process such that id = i + m * j.
+* Each process should communicate with the processes that next to it vertically, horizontally and diagonally (i.e. processes in the middle of the grid will communicate with 8 neighbours, those on edges with 5 neighbours and those in the corners with 3 neighbours). Send the neighbours the source’s id as well as their i and j coordinates and display these.
 
 ## Key instructions used:
 * MPI_Isend(const void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator, MPI_Request* request)
