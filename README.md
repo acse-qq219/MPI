@@ -1,5 +1,5 @@
 # WINS MPI - FOR PERSONAL STUDY USE ONLY
-
+All content refers to Imperial College London ACSE module. Please use this note personally.
 
 ## Configuration for MSVC
 * Install MSVC C++ 2017 (or higher version) 
