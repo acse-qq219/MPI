@@ -2,17 +2,17 @@
 All content refers to Imperial College London ACSE module. Please use this note personally.
 
 ## Configuration for MSVC
-* Install MSVC C++ 2017 (or higher version) 
-* Install [Miscroft MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi)
-  1. download and install both ***msmpisdk.msi*** and ***msmpisetup.exe*** at default path
-  2. For WINS, add path "C:\Program Files\Microsoft MPI\Bin\" to environment variables
-* Create a new project in MSVC
-  1. Right click on the project in ***Solution Explorer*** and find ***Properties***
-  2. Find ***VC++ Dierctories*** in the LHS bar
-  3. Add "C:\Program Files (x86)\Microsoft SDKs\Include" to the ***Include Directories***
-  4. Add "C:\Program Files (x86)\Microsoft SDKs\Lib\x64" to the ***Library Directories***
+1. Install MSVC C++ 2017 (or higher version) 
+2. Install [Miscroft MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi)
+  - download and install both `msmpisdk.msi` and `msmpisetup.exe` at default path
+  - For WINS, add path "C:\Program Files\Microsoft MPI\Bin\" to environment variables
+3. Create a new project in MSVC
+  - Right click on the project in `Solution Explorer` and find `Properties`
+  - Find `VC++ Dierctories` in the LHS bar
+  - Add "C:\Program Files (x86)\Microsoft SDKs\Include" to the `Include Directories`
+  - Add "C:\Program Files (x86)\Microsoft SDKs\Lib\x64" to the `Library Directories`
 or "...\Lib\x86" (depends on your debugger) 
-  5. Add "msmmpi.lib" to the ***Additional Dependencies***
+  - Add "msmmpi.lib" to the `Linker` => `Input` => `Additional Dependencies`
 
 
 ## Configuration for HPC (Imperial cx1 and cx2):
